@@ -12,7 +12,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -20,7 +20,7 @@ export function Navbar() {
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">N</span>
             </div>
-            <span className="font-bold text-xl">NexaTech</span>
+            <span className="font-bold text-xl text-foreground">NexaTech</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -29,7 +29,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
               >
                 {link.name}
               </a>
@@ -45,7 +45,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -61,7 +61,7 @@ export function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 py-2"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 py-2 font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

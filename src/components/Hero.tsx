@@ -7,12 +7,12 @@ export function Hero() {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-hero" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-3xl animate-pulse-glow" />
-      <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/10 blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-accent/5 blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+      <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-accent/10 blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
       
       {/* Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
@@ -22,13 +22,13 @@ export function Hero() {
       <div className="container relative z-10 px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-up">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Building the future of digital solutions</span>
+            <span className="text-sm text-foreground font-medium">Building the future of digital solutions</span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 animate-fade-up-delay-1">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 animate-fade-up-delay-1 text-foreground">
             Transform Your Vision Into{" "}
             <span className="text-gradient">Digital Reality</span>
           </h1>
@@ -50,7 +50,7 @@ export function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-border/50">
+          <div className="grid grid-cols-3 gap-8 mt-20 pt-10 border-t border-border">
             <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
               <div className="text-4xl md:text-5xl font-bold text-gradient">150+</div>
               <div className="text-muted-foreground mt-2">Projects Delivered</div>
