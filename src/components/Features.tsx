@@ -44,7 +44,7 @@ export function Features() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Why Choose <span className="text-gradient">NexaTech</span>?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
@@ -55,11 +55,11 @@ export function Features() {
             <div className="grid sm:grid-cols-2 gap-6">
               {features.slice(0, 4).map((feature) => (
                 <div key={feature.title} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                    <feature.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">{feature.title}</h4>
+                    <h4 className="font-semibold mb-1 text-foreground">{feature.title}</h4>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
                 </div>
@@ -69,21 +69,21 @@ export function Features() {
 
           {/* Right Content - Stats Card */}
           <div className="relative">
-            <div className="glass rounded-3xl p-10">
+            <div className="bg-card rounded-3xl p-10 border border-border shadow-card">
               <div className="grid grid-cols-2 gap-8">
                 {features.slice(4).map((feature) => (
                   <div key={feature.title} className="text-center">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <feature.icon className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-4">
+                      <feature.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="font-semibold mb-2">{feature.title}</h4>
+                    <h4 className="font-semibold mb-2 text-foreground">{feature.title}</h4>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
                 ))}
               </div>
               
               {/* Decorative Glow */}
-              <div className="absolute -inset-4 rounded-3xl bg-primary/5 blur-2xl -z-10" />
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/10 to-accent/10 blur-2xl -z-10" />
             </div>
           </div>
         </div>

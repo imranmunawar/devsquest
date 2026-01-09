@@ -28,7 +28,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
+    <footer className="border-t border-border bg-background">
       <div className="container px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
@@ -37,7 +37,7 @@ export function Footer() {
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">N</span>
               </div>
-              <span className="font-bold text-xl">NexaTech</span>
+              <span className="font-bold text-xl text-foreground">NexaTech</span>
             </a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Building innovative digital solutions that transform businesses and drive growth in the modern economy.
@@ -47,10 +47,10 @@ export function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary/20 transition-colors duration-300"
+                  className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   aria-label={social.name}
                 >
-                  <social.icon className="w-5 h-5 text-muted-foreground" />
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
@@ -58,13 +58,13 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -75,13 +75,13 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -92,13 +92,13 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                   </a>
