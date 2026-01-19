@@ -1,4 +1,5 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
 
 const footerLinks = {
   services: [
@@ -32,91 +33,144 @@ export function Footer() {
       <div className="container px-6 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">N</span>
+          <motion.div 
+            className="lg:col-span-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <motion.a 
+              href="#" 
+              className="flex items-center gap-3 mb-6"
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                <span className="text-white font-bold text-xl">D</span>
               </div>
-              <span className="font-bold text-xl text-foreground">NexaTech</span>
-            </a>
+              <span className="font-bold text-xl text-foreground">Devs Quest</span>
+            </motion.a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Building innovative digital solutions that transform businesses and drive growth in the modern economy.
             </p>
             <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
+              {socialLinks.map((social, index) => (
+                <motion.a
                   key={social.name}
                   href={social.href}
                   className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   aria-label={social.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
                 >
                   <social.icon className="w-5 h-5" />
-                </a>
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
             <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
+              {footerLinks.services.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-block hover:translate-x-1"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Company */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
             <h4 className="font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
+              {footerLinks.company.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.25 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-block hover:translate-x-1"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Legal */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
             <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
             <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
+              {footerLinks.legal.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.35 + index * 0.05 }}
+                >
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 inline-block hover:translate-x-1"
                   >
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+        <motion.div 
+          className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
           <p className="text-muted-foreground text-sm">
-            © 2024 NexaTech. All rights reserved.
+            © 2024 Devs Quest. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
             Crafted with precision in San Francisco
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

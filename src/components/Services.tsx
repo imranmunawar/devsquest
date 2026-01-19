@@ -6,6 +6,9 @@ import {
   LayoutDashboard, 
   MessageSquare 
 } from "lucide-react";
+import { motion, type Variants, type Easing } from "framer-motion";
+
+const easeOut: Easing = [0.4, 0, 0.2, 1];
 
 const services = [
   {
@@ -46,6 +49,25 @@ const services = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: easeOut },
+  },
+};
+
 export function Services() {
   return (
     <section id="services" className="py-32 relative bg-secondary/30">
@@ -54,27 +76,59 @@ export function Services() {
       
       <div className="container relative z-10 px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             Our <span className="text-gradient">Services</span>
-          </h2>
-          <p className="text-xl text-muted-foreground">
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-muted-foreground"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
             From concept to deployment, we deliver comprehensive solutions tailored to your business needs.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {services.map((service) => (
+            <motion.div
               key={service.title}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-card-hover"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              variants={cardVariants}
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.15)",
+              }}
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors duration-500 cursor-pointer"
             >
               {/* Icon */}
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <motion.div 
+                className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6`}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <service.icon className="w-7 h-7 text-white" />
-              </div>
+              </motion.div>
 
               {/* Content */}
               <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
@@ -83,9 +137,18 @@ export function Services() {
               <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
-            </div>
+
+              {/* Hover Line Effect */}
+              <motion.div 
+                className="h-0.5 bg-gradient-to-r from-primary to-accent mt-6 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.3 }}
+                style={{ originX: 0 }}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
