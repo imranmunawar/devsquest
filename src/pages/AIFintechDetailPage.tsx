@@ -1,14 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getServiceById, services } from "@/lib/services-data";
+import { getAIFintechServiceById, aiFintechServices } from "@/lib/ai-fintech-data";
 
-const ServiceDetailPage = () => {
+const AIFintechDetailPage = () => {
   const { id } = useParams();
-  const service = getServiceById(id || "");
+  const service = getAIFintechServiceById(id || "");
 
   if (!service) {
     return (
@@ -16,8 +16,8 @@ const ServiceDetailPage = () => {
         <Navbar />
         <div className="pt-32 pb-20 text-center">
           <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
-          <Link to="/services">
-            <Button variant="hero">Back to Services</Button>
+          <Link to="/ai-fintech">
+            <Button variant="hero">Back to AI & Fintech</Button>
           </Link>
         </div>
         <Footer />
@@ -25,7 +25,7 @@ const ServiceDetailPage = () => {
     );
   }
 
-  const otherServices = services.filter(s => s.id !== service.id).slice(0, 3);
+  const otherServices = aiFintechServices.filter(s => s.id !== service.id);
 
   return (
     <div className="min-h-screen bg-background">
@@ -48,15 +48,25 @@ const ServiceDetailPage = () => {
             transition={{ duration: 0.5 }}
           >
             <Link 
-              to="/services" 
+              to="/ai-fintech" 
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Services
+              Back to AI & Fintech
             </Link>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
+                <motion.div
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 mb-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <Sparkles className="w-3 h-3 text-primary" />
+                  <span className="text-xs font-medium text-foreground">AI-Powered</span>
+                </motion.div>
+                
                 <motion.div 
                   className="w-20 h-20 rounded-2xl bg-foreground flex items-center justify-center mb-6"
                   initial={{ scale: 0 }}
@@ -110,8 +120,87 @@ const ServiceDetailPage = () => {
         </div>
       </section>
 
+      {/* Case Study Section */}
+      <section className="py-20 bg-foreground">
+        <div className="container px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <span className="px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-bold uppercase tracking-wider">
+                Case Study
+              </span>
+              <span className="text-background/60">{service.caseStudy.industry}</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-background">
+              {service.caseStudy.client}
+            </h2>
+
+            <div className="grid lg:grid-cols-2 gap-12 mt-12">
+              {/* Challenge & Solution */}
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-lg font-bold text-primary mb-3">The Challenge</h3>
+                  <p className="text-background/80 leading-relaxed">
+                    {service.caseStudy.challenge}
+                  </p>
+                </div>
+                
+                <div>
+                  <h3 className="text-lg font-bold text-primary mb-3">Our Solution</h3>
+                  <p className="text-background/80 leading-relaxed">
+                    {service.caseStudy.solution}
+                  </p>
+                </div>
+              </div>
+
+              {/* Results */}
+              <div>
+                <h3 className="text-lg font-bold text-primary mb-4">The Results</h3>
+                <div className="space-y-3 mb-8">
+                  {service.caseStudy.results.map((result, index) => (
+                    <motion.div 
+                      key={index}
+                      className="flex items-start gap-3 p-3 rounded-xl bg-background/5"
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-background">{result}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-2 gap-4">
+                  {service.caseStudy.metrics.map((metric, index) => (
+                    <motion.div 
+                      key={metric.label}
+                      className="p-4 rounded-2xl bg-background text-center"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ y: -5 }}
+                    >
+                      <div className="text-3xl font-bold text-foreground mb-1">{metric.value}</div>
+                      <div className="text-sm text-muted-foreground">{metric.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Technologies Section */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20">
         <div className="container px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -123,7 +212,7 @@ const ServiceDetailPage = () => {
               Technologies We Use
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Industry-leading technologies for robust, scalable solutions.
+              Industry-leading AI and fintech technologies for robust, scalable solutions.
             </p>
           </motion.div>
 
@@ -152,9 +241,9 @@ const ServiceDetailPage = () => {
       </section>
 
       {/* Other Services */}
-      <section className="py-20">
+      <section className="py-20 bg-secondary/30">
         <div className="container px-6">
-          <h2 className="text-3xl font-bold mb-8 text-foreground">Explore Other Services</h2>
+          <h2 className="text-3xl font-bold mb-8 text-foreground">Explore Other AI & Fintech Solutions</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {otherServices.map((otherService) => (
               <motion.div
@@ -162,7 +251,7 @@ const ServiceDetailPage = () => {
                 whileHover={{ y: -8 }}
                 className="group"
               >
-                <Link to={`/services/${otherService.id}`}>
+                <Link to={`/ai-fintech/${otherService.id}`}>
                   <div className="bg-card rounded-2xl border-2 border-border p-6 hover:border-primary transition-all duration-300 h-full">
                     <div className="w-12 h-12 rounded-xl bg-foreground flex items-center justify-center mb-4">
                       <otherService.icon className="w-6 h-6 text-primary" />
@@ -201,7 +290,7 @@ const ServiceDetailPage = () => {
               Ready to Get Started with {service.title}?
             </h2>
             <p className="text-lg text-background/70 max-w-2xl mx-auto mb-8 relative z-10">
-              Let's discuss how we can help you achieve your business goals with our expertise.
+              Let's discuss how we can help you achieve your business goals with our AI expertise.
             </p>
             <Link to="/#contact">
               <motion.button
@@ -221,4 +310,4 @@ const ServiceDetailPage = () => {
   );
 };
 
-export default ServiceDetailPage;
+export default AIFintechDetailPage;
