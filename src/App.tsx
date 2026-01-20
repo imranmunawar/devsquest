@@ -9,6 +9,8 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import ServicesPage from "./pages/ServicesPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import AIFintechPage from "./pages/AIFintechPage";
+import AIFintechDetailPage from "./pages/AIFintechDetailPage";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:id" element={<ServiceDetailPage />} />
+          <Route path="/ai-fintech" element={<AIFintechPage />} />
+          <Route path="/ai-fintech/:id" element={<AIFintechDetailPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
