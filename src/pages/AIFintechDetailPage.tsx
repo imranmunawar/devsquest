@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { getAIFintechServiceById, aiFintechServices } from "@/lib/ai-fintech-data";
+import { SEO } from "@/components/SEO";
 
 const AIFintechDetailPage = () => {
   const { id } = useParams();
@@ -29,6 +30,12 @@ const AIFintechDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={`${service.title} | AI & Fintech Solutions - Devs Quest`}
+        description={service.fullDescription}
+        keywords={`${service.title}, ${service.technologies.join(', ')}, AI solutions, fintech, case study`}
+        canonicalUrl={`/ai-fintech/${service.id}`}
+      />
       <Navbar />
       
       {/* Hero Section */}

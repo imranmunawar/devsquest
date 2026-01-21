@@ -3,19 +3,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { QuotationForm } from "./QuotationForm";
 
 const navLinks = [
   { name: "Services", href: "/services" },
   { name: "AI & Fintech", href: "/ai-fintech" },
   { name: "Projects", href: "/projects" },
-  { name: "About", href: "/#about" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showQuotation, setShowQuotation] = useState(false);
 
   return (
+    <>
+      <QuotationForm open={showQuotation} onOpenChange={setShowQuotation} />
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -53,9 +57,7 @@ export function Navbar() {
           </div>
 
           <motion.div className="hidden md:block" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-            <Link to="/#contact">
-              <Button variant="hero" size="lg">Get Started</Button>
-            </Link>
+            <Button variant="hero" size="lg" onClick={() => setShowQuotation(true)}>Get Started</Button>
           </motion.div>
 
           <button className="md:hidden p-2 text-foreground" onClick={() => setIsOpen(!isOpen)}>
@@ -77,12 +79,13 @@ export function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <Button variant="hero" size="lg" className="mt-4">Get Started</Button>
+                <Button variant="hero" size="lg" className="mt-4" onClick={() => { setShowQuotation(true); setIsOpen(false); }}>Get Started</Button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </motion.nav>
+    </>
   );
 }

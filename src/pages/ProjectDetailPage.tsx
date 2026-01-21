@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { getProjectById, projects } from "@/lib/projects-data";
+import { SEO } from "@/components/SEO";
 
 const ProjectDetailPage = () => {
   const { id } = useParams();
@@ -29,6 +30,12 @@ const ProjectDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={`${project.title} | Case Study - Devs Quest`}
+        description={project.description}
+        keywords={`${project.category}, ${project.technologies.join(', ')}, case study, software development`}
+        canonicalUrl={`/projects/${project.id}`}
+      />
       <Navbar />
       
       {/* Hero Section */}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { services } from "@/lib/services-data";
+import { SEO } from "@/components/SEO";
 
 const easeOutQuart: Easing = [0.22, 1, 0.36, 1];
 
@@ -29,6 +30,12 @@ const cardVariants: Variants = {
 const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Our Services | Web, E-commerce & Enterprise Solutions - Devs Quest"
+        description="Comprehensive digital services including custom web applications, e-commerce platforms, banking systems, and enterprise solutions tailored to your business needs."
+        keywords="web development services, e-commerce development, banking software, fintech solutions, enterprise applications, custom software development"
+        canonicalUrl="/services"
+      />
       <Navbar />
       
       {/* Hero Section */}

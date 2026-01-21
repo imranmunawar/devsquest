@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { getServiceById, services } from "@/lib/services-data";
+import { SEO } from "@/components/SEO";
 
 const ServiceDetailPage = () => {
   const { id } = useParams();
@@ -29,6 +30,12 @@ const ServiceDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title={`${service.title} | Services - Devs Quest`}
+        description={service.fullDescription}
+        keywords={`${service.title}, ${service.technologies.join(', ')}, software development, web development`}
+        canonicalUrl={`/services/${service.id}`}
+      />
       <Navbar />
       
       {/* Hero Section */}
