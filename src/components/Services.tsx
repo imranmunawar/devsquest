@@ -24,7 +24,7 @@ const cardVariants: Variants = {
 
 export function Services() {
   return (
-    <section id="services" className="py-32 relative overflow-hidden">
+    <section id="services" className="py-20 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">

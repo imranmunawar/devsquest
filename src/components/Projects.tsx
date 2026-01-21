@@ -27,7 +27,7 @@ export function Projects() {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <section id="projects" className="py-32 relative">
+    <section id="projects" className="py-20 relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-hero opacity-50" />
       

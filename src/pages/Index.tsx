@@ -4,7 +4,8 @@ import { Services } from "@/components/Services";
 import { AIFintech } from "@/components/AIFintech";
 import { Projects } from "@/components/Projects";
 import { Features } from "@/components/Features";
-import { Contact } from "@/components/Contact";
+import { Testimonials } from "@/components/Testimonials";
+import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -16,7 +17,8 @@ const Index = () => {
       <AIFintech />
       <Projects />
       <Features />
-      <Contact />
+      <Testimonials />
+      <ContactForm />
       <Footer />
     </div>
   );
