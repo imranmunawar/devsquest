@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { aiFintechServices } from "@/lib/ai-fintech-data";
+import { SEO } from "@/components/SEO";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -28,6 +29,12 @@ const cardVariants: Variants = {
 const AIFintechPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="AI & Fintech Solutions | Chatbots, Voice AI & Digital Wallets - Devs Quest"
+        description="Transform your business with AI-powered fintech solutions. Text chatbots, voice AI, onboarding agents, and digital wallet solutions with proven case studies."
+        keywords="AI chatbot, voice AI, fintech solutions, digital wallet, AI onboarding, conversational AI, banking AI, payment solutions"
+        canonicalUrl="/ai-fintech"
+      />
       <Navbar />
       
       {/* Hero Section */}

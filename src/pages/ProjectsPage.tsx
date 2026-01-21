@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { projects } from "@/lib/projects-data";
+import { SEO } from "@/components/SEO";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -26,6 +27,12 @@ const cardVariants = {
 const ProjectsPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO 
+        title="Our Projects | Case Studies & Portfolio - Devs Quest"
+        description="Explore our portfolio of successful digital transformation projects. See how we've helped businesses achieve growth through innovative web, AI, and fintech solutions."
+        keywords="portfolio, case studies, web development projects, fintech solutions, AI implementation, software projects"
+        canonicalUrl="/projects"
+      />
       <Navbar />
       
       {/* Hero Section */}

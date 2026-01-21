@@ -11,6 +11,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import AIFintechPage from "./pages/AIFintechPage";
 import AIFintechDetailPage from "./pages/AIFintechDetailPage";
+import AboutPage from "./pages/AboutPage";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/services/:id" element={<ServiceDetailPage />} />
           <Route path="/ai-fintech" element={<AIFintechPage />} />
           <Route path="/ai-fintech/:id" element={<AIFintechDetailPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
