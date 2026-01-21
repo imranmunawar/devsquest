@@ -55,7 +55,7 @@ const itemVariants = {
 
 export function Features() {
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden">
       {/* Decorative Elements */}
       <motion.div 
         className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl"

@@ -25,7 +25,7 @@ const cardVariants: Variants = {
 
 export function AIFintech() {
   return (
-    <section id="ai-fintech" className="py-32 relative overflow-hidden bg-foreground">
+    <section id="ai-fintech" className="py-20 relative overflow-hidden bg-foreground">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div 

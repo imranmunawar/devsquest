@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, type Variants, type Easing } from "framer-motion";
+import { QuotationForm } from "./QuotationForm";
 
 const easeOut: Easing = [0.4, 0, 0.2, 1];
 
@@ -25,6 +28,8 @@ const itemVariants: Variants = {
 };
 
 export function Hero() {
+  const [showQuotation, setShowQuotation] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background Orbs */}
@@ -128,7 +133,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="hero" size="xl">
+              <Button variant="hero" size="xl" onClick={() => setShowQuotation(true)}>
                 Start Your Project
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
@@ -139,11 +144,15 @@ export function Hero() {
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button variant="heroOutline" size="xl">
-                View Our Work
-              </Button>
+              <Link to="/projects">
+                <Button variant="heroOutline" size="xl">
+                  View Our Work
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
+
+          <QuotationForm open={showQuotation} onOpenChange={setShowQuotation} />
 
           {/* Stats */}
           <motion.div 
