@@ -7,9 +7,9 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@devsquest.com" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-  { icon: MapPin, label: "Location", value: "San Francisco, CA" },
+  { icon: Mail, label: "Email", value: "devsquesthub@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+92 (306) 462-2487" },
+  { icon: MapPin, label: "Location", value: "Broadway Commercial DHA 8, Lahore, Pakistan." },
 ];
 
 export function ContactForm() {
@@ -59,6 +59,7 @@ export function ContactForm() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div
+            id="get-in-touch"
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

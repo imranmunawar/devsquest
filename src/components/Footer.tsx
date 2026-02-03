@@ -11,8 +11,8 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "#about" },
     { name: "Careers", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Contact", href: "#contact" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/#contact" },
   ],
   legal: [
     { name: "Privacy Policy", href: "#" },
@@ -23,7 +23,7 @@ const footerLinks = {
 
 const socialLinks = [
   { name: "Twitter", icon: Twitter, href: "#" },
-  { name: "LinkedIn", icon: Linkedin, href: "#" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/devsquest1/" },
   { name: "GitHub", icon: Github, href: "#" },
 ];
 
@@ -44,10 +44,7 @@ export function Footer() {
               className="flex items-center gap-3 mb-6"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D</span>
-              </div>
-              <span className="font-bold text-xl text-foreground">Devs Quest</span>
+              <img src="/logo.png" alt="Devs Quest" className="h-12" />
             </motion.a>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Building innovative digital solutions that transform businesses and drive growth in the modern economy.
@@ -57,6 +54,8 @@ export function Footer() {
                 <motion.a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   aria-label={social.name}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -165,10 +164,10 @@ export function Footer() {
           transition={{ delay: 0.4 }}
         >
           <p className="text-muted-foreground text-sm">
-            © 2024 Devs Quest. All rights reserved.
+            © {new Date().getFullYear()} DevsQuest. All rights reserved.
           </p>
           <p className="text-muted-foreground text-sm">
-            Crafted with precision in San Francisco
+            Crafted with precision in Pakistan
           </p>
         </motion.div>
       </div>

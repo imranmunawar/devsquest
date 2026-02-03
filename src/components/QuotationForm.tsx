@@ -71,13 +71,36 @@ export function QuotationForm({ open, onOpenChange }: QuotationFormProps) {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Quotation Request Sent!",
-      description: "Our team will contact you within 24 hours.",
-    });
+
+    try {
+      const response = await fetch("/api/quotation", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send quotation request");
+      }
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      toast({
+        title: "Quotation Request Sent!",
+        description: "Our team will contact you within 24 hours.",
+      });
+    } catch (error) {
+      setIsSubmitting(false);
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to send quotation request. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (field: string, value: string) => {

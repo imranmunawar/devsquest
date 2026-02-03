@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Target, Eye, Heart, Users, Award, Globe } from "lucide-react";
+import { Target, Eye, Heart, Users, Award, Globe, Sparkles } from "lucide-react";
 import { SEO } from "@/components/SEO";
 
 const teamMembers = [
@@ -59,7 +59,8 @@ const milestones = [
   { year: "2018", event: "Expanded to fintech solutions, launching our first banking platform" },
   { year: "2020", event: "Pioneered AI integration services, serving 50+ global clients" },
   { year: "2022", event: "Launched Digital Wallet solutions, processing $100M+ transactions" },
-  { year: "2024", event: "Celebrating 150+ successful projects across 20+ countries" }
+  { year: "2024", event: "Celebrating 150+ successful projects across 20+ countries" },
+  { year: new Date().getFullYear().toString(), event: "Continuing to innovate and expand our global footprint with cutting-edge solutions" }
 ];
 
 const AboutPage = () => {
@@ -74,25 +75,35 @@ const AboutPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-32 pb-32 relative overflow-hidden bg-foreground">
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl"
+            className="absolute top-0 left-1/4 w-[800px] h-[800px] rounded-full bg-primary/15 blur-3xl"
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
         </div>
         <div className="container relative z-10 px-6">
           <motion.div 
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              About <span className="text-gradient">Devs Quest</span>
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-background">Our Story</span>
+            </motion.div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-background">
+              About <span className="text-primary">Devs Quest</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-background/70 max-w-2xl mx-auto">
               We're a team of passionate innovators dedicated to transforming businesses 
               through cutting-edge digital solutions and AI-powered technologies.
             </p>

@@ -18,7 +18,7 @@ const structuredData = {
   "logo": "https://devsquest.com/logo.png",
   "sameAs": [
     "https://twitter.com/DevsQuest",
-    "https://linkedin.com/company/devsquest"
+    "https://www.linkedin.com/company/devsquest1/"
   ],
   "contactPoint": {
     "@type": "ContactPoint",

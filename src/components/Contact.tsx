@@ -56,7 +56,10 @@ export function Contact() {
               </motion.p>
               
               {/* CTA Button */}
-              <motion.div
+              <motion.a
+                href="https://calendar.app.google/2QyxiuDbLoMS18W9A"
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -74,7 +77,7 @@ export function Contact() {
                     <ArrowRight className="w-5 h-5" />
                   </motion.span>
                 </Button>
-              </motion.div>
+              </motion.a>
 
               {/* Contact Info */}
               <motion.div 

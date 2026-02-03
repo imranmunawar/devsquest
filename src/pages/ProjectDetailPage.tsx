@@ -39,7 +39,7 @@ const ProjectDetailPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-12 relative">
+      <section className="pt-32 pb-32 relative">
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="container relative z-10 px-6">
           <motion.div
@@ -81,7 +81,7 @@ const ProjectDetailPage = () => {
 
       {/* Hero Image */}
       <motion.section 
-        className="pb-20"
+        className="py-20"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -98,7 +98,7 @@ const ProjectDetailPage = () => {
       </motion.section>
 
       {/* Content */}
-      <section className="pb-20">
+      <section className="py-20">
         <div className="container px-6">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}

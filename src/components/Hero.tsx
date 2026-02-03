@@ -82,7 +82,7 @@ export function Hero() {
 
       <div className="container relative z-10 px-6">
         <motion.div 
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-6xl mx-auto text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -99,7 +99,7 @@ export function Hero() {
             >
               <Sparkles className="w-4 h-4 text-primary" />
             </motion.div>
-            <span className="text-sm text-foreground font-medium">Building the future of digital solutions</span>
+            <span className="text-sm text-foreground font-medium">Empowering Innovation, One Line at a Time</span>
           </motion.div>
 
           {/* Headline */}
@@ -122,9 +122,11 @@ export function Hero() {
           {/* Subheadline */}
           <motion.p 
             variants={itemVariants}
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10"
+            className="text-xl md:text-2xl text-muted-foreground max-w-6xl mx-auto mb-10"
           >
-            We craft cutting-edge web applications, fintech solutions, and enterprise systems that drive innovation and accelerate growth.
+          DevsQuest helps startups and enterprises turn ideas into high-quality digital products with speed, precision, and impact. 
+          We build scalable software that drives real business results. Turning Ideas Into Powerful Software
+          From concept to launch, DevsQuest delivers agile, scalable solutions built for performance and growth.
           </motion.p>
 
           {/* CTA Buttons */}

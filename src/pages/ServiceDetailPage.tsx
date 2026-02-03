@@ -39,7 +39,7 @@ const ServiceDetailPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-32 pb-32 relative overflow-hidden">
         <div className="absolute inset-0">
           <motion.div 
             className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl"
@@ -210,7 +210,11 @@ const ServiceDetailPage = () => {
             <p className="text-lg text-background/70 max-w-2xl mx-auto mb-8 relative z-10">
               Let's discuss how we can help you achieve your business goals with our expertise.
             </p>
-            <Link to="/#contact">
+            <a 
+              href="https://calendar.app.google/2QyxiuDbLoMS18W9A"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -218,7 +222,7 @@ const ServiceDetailPage = () => {
               >
                 Schedule a Consultation
               </motion.button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

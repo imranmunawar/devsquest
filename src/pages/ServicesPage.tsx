@@ -1,5 +1,5 @@
 import { motion, type Variants, type Easing } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -39,25 +39,35 @@ const ServicesPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-32 pb-32 relative overflow-hidden bg-foreground">
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-primary/5 blur-3xl"
+            className="absolute top-0 left-1/4 w-[800px] h-[800px] rounded-full bg-primary/15 blur-3xl"
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
         </div>
         <div className="container relative z-10 px-6">
           <motion.div 
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              Our <span className="text-gradient">Services</span>
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-background">Comprehensive Solutions</span>
+            </motion.div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-background">
+              Our <span className="text-primary">Services</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-background/70 max-w-2xl mx-auto">
               From concept to deployment, we deliver comprehensive digital solutions 
               tailored to your unique business challenges and goals.
             </p>
@@ -139,7 +149,11 @@ const ServicesPage = () => {
               Our team is here to help you identify the best solution for your business. 
               Schedule a free consultation and let's discuss your project.
             </p>
-            <Link to="/#contact">
+            <a 
+              href="https://calendar.app.google/2QyxiuDbLoMS18W9A"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -147,7 +161,7 @@ const ServicesPage = () => {
               >
                 Schedule a Free Consultation
               </motion.button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
